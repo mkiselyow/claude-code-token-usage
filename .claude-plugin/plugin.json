@@ -1,0 +1,10 @@
+{
+  "name": "token-usage-line",
+  "version": "0.2.0",
+  "description": "Token usage per response and per session, cost and context window, on one line above the Claude Code prompt.",
+  "types": "./types/index.d.ts",
+  "author": {
+    "name": "Max Kyselov"
+  },
+  "displayName": "Token Usage Line: per-response & session tokens"
+}
