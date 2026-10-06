@@ -90,19 +90,23 @@ export const register: Register = on => {
           {title}
         </Text>
         {pair('in', k(inputOf(t)))}
-        <Text color={LABEL}>{`(${cachedPercent(t)}% cached)`}</Text>
+        {inputOf(t) > 0 ? <Text color={LABEL}>{`(${cachedPercent(t)}% cached)`}</Text> : null}
         {pair('out', k(t.output))}
       </Box>
     )
 
-    const sections = [
-      last ? group('Last', last) : null,
-      group('Session', total),
-      usage.cost ? (
-        <Text color={VALUE} bold>{`~$${usage.cost.usd.toFixed(2)}`}</Text>
-      ) : null,
-      usage.context.percent !== undefined ? pair('context', `${Math.round(usage.context.percent)}%`) : null,
-    ].filter(section => section !== null)
+    const empty = inputOf(total) + total.output === 0
+    const usd = usage.cost?.usd ?? 0
+    const contextPercent = Math.round(usage.context.percent ?? 0)
+
+    const sections = empty
+      ? [<Text color={LABEL}>tokens: waiting for the first response</Text>]
+      : [
+          last ? group('Last', last) : null,
+          group('Session', total),
+          usd > 0 ? <Text color={VALUE} bold>{`~$${usd.toFixed(2)}`}</Text> : null,
+          contextPercent > 0 ? pair('context', `${contextPercent}%`) : null,
+        ].filter(section => section !== null)
 
     return (
       <Box flexDirection="column">
