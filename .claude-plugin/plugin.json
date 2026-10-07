@@ -7,5 +7,11 @@
   "author": {
     "name": "Max Kyselov"
   },
-  "displayName": "Token Usage Line: per-response & session tokens"
+  "displayName": "Token Usage Line: per-response & session tokens",
+  "homepage": "https://github.com/mkiselyow/claude-code-token-usage",
+  "repository": "https://github.com/mkiselyow/claude-code-token-usage",
+  "documentationUrl": "https://github.com/mkiselyow/claude-code-token-usage#readme",
+  "supportUrl": "https://github.com/mkiselyow/claude-code-token-usage/issues",
+  "privacyPolicyUrl": "https://github.com/mkiselyow/claude-code-token-usage/blob/main/PRIVACY.md",
+  "keywords": ["tokens", "usage", "cost", "context window", "prompt cache", "status line"]
 }
